@@ -2,7 +2,230 @@
   box-sizing: border-box;
 }
 
-body {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-size: inherit;
   margin: 0;
-  min-height: 100vh;
+}
+
+$gray--500: #999;
+$gray--400: #ccc;
+$gray--100: #f2f2f2;
+
+$blue-light--300: #7395d3;
+$blue-light--200: #d6dff2;
+$blue-light--100: #e7edf5;
+
+$red-light--200: #f6c4c2;
+
+$light: #fff;
+$dark: #000;
+
+body {
+  font-size: clamp(16px, 3vw, 18px);
+  color: $dark;
+  display: grid;
+  place-items: center;
+  margin: 0;
+  min-height: 100dvh;
+  background-image: linear-gradient(
+    0deg,
+    rgba(142, 164, 188, 1) 40%,
+    rgba(205, 217, 228, 1) 100%
+  );
+}
+
+.icon {
+  width: 25px;
+  aspect-ratio: 1;
+}
+
+.chat {
+  $root: &;
+  display: flex;
+  flex-direction: column;
+  max-height: 100dvh;
+  max-width: 560px;
+  width: 100%;
+  background-color: $light;
+
+  @media (width >= 768px) {
+    max-height: 618px;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 30px;
+    padding: 25px;
+    background-color: $blue-light--300;
+    color: $light;
+    flex-shrink: 0;
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+    font-size: clamp(18px, 3vw, 20px);
+    font-weight: 700;
+    text-transform: uppercase;
+
+    &::before {
+      content: "";
+      display: block;
+      flex-shrink: 0;
+      width: 6px;
+      aspect-ratio: 1;
+      background-color: $light;
+      border-radius: 50%;
+    }
+  }
+
+  &__btn {
+    padding: 5px;
+    border: none;
+    background-color: transparent;
+    color: $blue-light--200;
+    cursor: pointer;
+    transition: color 300ms ease-out;
+
+    @media (hover: hover) {
+      &:hover {
+        color: $light;
+      }
+    }
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    row-gap: clamp(25px, 6vw, 45px);
+    padding: 25px 20px;
+    overflow-y: auto;
+    flex-grow: 1;
+  }
+
+  &__day {
+    display: flex;
+    column-gap: 14px;
+    align-items: center;
+    font-weight: 500;
+    color: $gray--400;
+    text-transform: uppercase;
+
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      flex-grow: 1;
+      height: 1px;
+      background-color: $gray--400;
+    }
+  }
+
+  &__message {
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+    align-self: flex-end;
+
+    &--my {
+      align-self: flex-start;
+
+      #{$root} {
+        &__message-content {
+          background-color: $blue-light--100;
+          border-top-left-radius: 0;
+
+          &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -8px;
+            border: 0 solid transparent;
+            border-top-width: 0px;
+            border-bottom-width: 8px;
+            border-right: 8px solid $blue-light--100;
+          }
+        }
+      }
+    }
+
+    &--other {
+      #{$root} {
+        &__time {
+          text-align: right;
+        }
+
+        &__message-content {
+          background-color: $gray--100;
+          border-top-right-radius: 0;
+
+          &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: -8px;
+            border: 0 solid transparent;
+            border-left-width: 0px;
+            border-right-width: 8px;
+            border-top: 8px solid $gray--100;
+          }
+        }
+      }
+    }
+  }
+
+  &__time {
+    color: $gray--500;
+  }
+
+  &__message-content {
+    position: relative;
+    max-width: 370px;
+    width: fit-content;
+    padding: 14px;
+    background-color: $red-light--200;
+    border-radius: 4px;
+    text-transform: capitalize;
+  }
+
+  &__form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 30px;
+    border-top: 1px solid $gray--400;
+    padding: 25px 20px;
+    flex-shrink: 0;
+  }
+
+  &__form-ta {
+    resize: none;
+    outline: none;
+    border: none;
+    flex-grow: 1;
+
+    &::placeholder {
+      color: $gray--500;
+    }
+  }
+
+  &__form-btn {
+    background-color: transparent;
+    text-transform: uppercase;
+    padding: 0;
+    border: none;
+    font-size: clamp(18px, 3vw, 20px);
+    font-weight: 500;
+    color: $blue-light--300;
+    cursor: pointer;
+  }
 }

@@ -1,15 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./src/style.scss">
-  <link rel="icon" href="./src/img/favicon.ico" sizes="32x32" />
-  <link rel="icon" href="./src/img/favicon.svg" type="image/svg+xml" />
-  <link rel="apple-touch-icon" href="./src/img/apple-touch-icon.png" />
-  <title>task-00</title>
-</head>
-<body>
-
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover"
+    />
+    <link rel="stylesheet" href="./src/style.scss" />
+    <link rel="icon" href="./src/img/favicon.ico" sizes="32x32" />
+    <link rel="icon" href="./src/img/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="./src/img/apple-touch-icon.png" />
+    <title>task-04</title>
+  </head>
+  <body>
+    <div class="chat">
+      <div class="chat__header">
+        <h2 class="chat__title">Mark Zuckerberg</h2>
+        <button type="button" class="chat__btn">
+          <svg
+            class="icon"
+            fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+            />
+            <path d="M0 0h24v24H0z" fill="none" />
+          </svg>
+        </button>
+      </div>
+      <div class="chat__body">
+        <div class="chat__day">today</div>
+        <div class="chat__message chat__message--my">
+          <time class="chat__time">10:53</time>
+          <div class="chat__message-content">
+            Hi, Mark! I made a new design for Messenger&nbsp;App.
+          </div>
+        </div>
+        <div class="chat__message chat__message--other">
+          <time class="chat__time">10:57</time>
+          <div class="chat__message-content">
+            Yo! Send it to my assistant and we'll review it during the year.
+          </div>
+        </div>
+        <div class="chat__message chat__message--my">
+          <time class="chat__time">11:03</time>
+          <div class="chat__message-content">But Mark....</div>
+        </div>
+        <div class="chat__message">
+          <div class="chat__message-content">You were blocked by the user.</div>
+        </div>
+      </div>
+      <form class="chat__form">
+        <textarea
+          class="chat__form-ta"
+          name="message"
+          placeholder="Enter your message"
+          required
+        ></textarea>
+        <button type="submit" class="chat__form-btn">send</button>
+      </form>
+    </div>
+    <script src="./src/script.js" type="module"></script>
+  </body>
 </html>
